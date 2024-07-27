@@ -1,0 +1,73 @@
+/* css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background: #444;
+}
+
+nav a {
+    color: #fff;
+    padding: 1em;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #555;
+}
+
+.container {
+    padding: 2em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links li{
+    list-style: none;
+    padding: 12px;
+}
+
+.nav-links li a{
+    text-decoration: none;
+    background-color: #4444eb;
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 10px;
+}
+#map {
+    height: 600px;
+    width: 100%;
+    margin: 2em auto;
+}

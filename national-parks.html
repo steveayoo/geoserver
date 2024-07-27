@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Parks of Wales</title>
+    <link rel="stylesheet" href="./css/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <style>
+        #nationalParkMap{
+          height: 100vh;
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <h1>National Parks of Wales</h1>
+    </header>
+    <nav class="nav-links">
+        <li><a href="national-parks.html">National Parks of Wales</a></li>
+        <li><a href="wales-roads.html">Wales Roads</a></li>
+        <li><a href="aonb.html">AONB</a></li>
+    </nav>
+    <div class="container">
+        <div id="nationalParkMap"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+     <script>
+         // Initialize the map
+    var nationalParkMap = L.map('nationalParkMap').setView([51.505, -0.09], 13);
+
+// Add a base layer (optional)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(nationalParkMap);
+
+// Add a WMS layer
+L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {
+  layers: 'nexrad-n0r-900913',
+  format: 'image/png',
+  transparent: true,
+  attribution: 'Weather data &copy; 2020 IEM Nexrad'
+}).addTo(nationalParkMap);
+     </script>
+</body>
+</html>

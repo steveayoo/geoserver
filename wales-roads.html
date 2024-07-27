@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wales Roads</title>
+    <link rel="stylesheet" href="./css/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <style>
+        #roadsMap{
+          height: 100vh;
+        }
+      </style>
+</head>
+<body data-page="wales-roads">
+    <header>
+        <h1>Wales Roads</h1>
+    </header>
+    <nav class="nav-links">
+      <li><a href="national-parks.html">National Parks of Wales</a></li>
+      <li><a href="wales-roads.html">Wales Roads</a></li>
+      <li><a href="aonb.html">AONB</a></li>
+  </nav>
+    <div class="container">
+        <div id="roadsMap"></div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- <script src="js/scripts.js"></script> -->
+
+     <script>
+         // Initialize the map
+    var roadsMap = L.map('roadsMap').setView([51.505, -0.09], 13);
+
+// Add a base layer (optional)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(roadsMap);
+
+// Add a WMS layer
+L.tileLayer.wms('https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi', {
+  layers: 'nexrad-n0r-900913',
+  format: 'image/png',
+  transparent: true,
+  attribution: 'Weather data &copy; 2020 IEM Nexrad'
+}).addTo(roadsMap);
+     </script>
+
+</body>
+</html>
+
